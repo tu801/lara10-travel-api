@@ -12,9 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('travel', function (Blueprint $table) {
-            $table->uuid();
+            $table->uuid()->primary();
             $table->tinyInteger('is_public')->unsigned()->default(0);
-            $table->string('slug');
+            $table->string('slug')->index();
             $table->string('name');
             $table->string('description');
             $table->integer('number_of_days')->unsigned()->default(0);
